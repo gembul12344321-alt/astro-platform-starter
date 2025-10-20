@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitehall - The Meme Coin from the Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ffffff;
+            --secondary: #000000;
+            --accent: #0ff0fc;
+            --glow: 0 0 10px rgba(255, 255, 255, 0.7);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary);
+            color: var(--primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            text-shadow: var(--glow);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            text-shadow: var(--glow);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            z-index: -1;
+        }
+
+        .hero-bg:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idHJhbnNwYXJlbnQiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48cmVjdCBmaWxsPSJ1cmwoI3BhdHRlcm4pIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--secondary);
+            text-shadow: none;
+        }
+
+        .btn:hover:before {
+            left: 0;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .btn-primary:before {
+            background: var(--secondary);
+        }
+
+        .btn-primary:hover {
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tokenomics Section */
+        .tokenomics-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tokenomics-chart {
+            display: flex;
+            height: 300px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .token-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            flex: 1;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .token-bar {
+            width: 80%;
+            background: linear-gradient(to top, var(--primary), rgba(255, 255, 255, 0.7));
+            border-radius: 5px 5px 0 0;
+            transition: var(--transition);
+        }
+
+        .token-item:hover .token-bar {
+            transform: scaleY(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .token-label {
+            margin-top: 10px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .token-percentage {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .tokenomics-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .token-detail {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .token-detail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .token-detail h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        /* Roadmap Section */
+        .roadmap-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .roadmap-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .roadmap-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .roadmap-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .roadmap-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .roadmap-content {
+            flex: 1;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .roadmap-item:nth-child(odd) .roadmap-content {
+            margin-right: 30px;
+        }
+
+        .roadmap-item:nth-child(even) .roadmap-content {
+            margin-left: 30px;
+        }
+
+        .roadmap-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .roadmap-content:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .roadmap-item:nth-child(odd) .roadmap-content:after {
+            right: -40px;
+        }
+
+        .roadmap-item:nth-child(even) .roadmap-content:after {
+            left: -40px;
+        }
+
+        .roadmap-phase {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .roadmap-content ul {
+            list-style: none;
+        }
+
+        .roadmap-content ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .roadmap-content ul li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Community Section */
+        .community-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .community-content p {
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 30px;
+            color: var(--primary);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-shadow: var(--glow);
+        }
+
+        .footer-text {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .roadmap-container:before {
+                left: 30px;
+            }
+            
+            .roadmap-item {
+                flex-direction: row !important;
+            }
+            
+            .roadmap-item:nth-child(odd) .roadmap-content,
+            .roadmap-item:nth-child(even) .roadmap-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+            
+            .roadmap-content:after {
+                left: -40px !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 200px;
+            }
+            
+            .tokenomics-chart {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .token-item {
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 10px 0;
+            }
+            
+            .token-bar {
+                width: 0;
+                height: 40px;
+                margin-right: 20px;
+                border-radius: 0 5px 5px 0;
+            }
+            
+            .token-item:hover .token-bar {
+                transform: scaleX(1.1);
+            }
+            
+            .token-label {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-infinity"></i> WHITEHALL
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#tokenomics">Tokenomics</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#" class="btn btn-primary">Buy Now</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Whitehall — The Meme Coin from the Future</h1>
+                <p>Elegance, intelligence, and decentralized power combined in one revolutionary cryptocurrency.</p>
+                <div class="cta-buttons">
+                    <a href="#community" class="btn">Join the Revolution</a>
+                    <a href="#" class="btn btn-primary">Buy $WHT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Whitehall</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Whitehall is not just another meme coin. It's a movement that combines elegant design, intelligent community, and the power of decentralization to create something truly revolutionary.</p>
+                    <p>Born from the vision of a future where cryptocurrency transcends mere speculation, Whitehall represents sophistication in the digital asset space. Our community is built on principles of knowledge sharing, mutual growth, and technological advancement.</p>
+                    <p>With a focus on sustainable development and innovative features, Whitehall is positioned to become a benchmark for what meme coins can achieve when elegance meets blockchain technology.</p>
+                </div>
+                <div class="about-image">
+                    <div class="floating">
+                        <i class="fas fa-infinity" style="font-size: 200px; color: rgba(255,255,255,0.1);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tokenomics</h2>
+            </div>
+            <div class="tokenomics-container">
+                <div class="tokenomics-chart">
+                    <div class="token-item">
+                        <div class="token-bar" style="height: 40%;"></div>
+                        <div class="token-label">Liquidity</div>
+                        <div class="token-percentage">40%</div>
+                    </div>
+                    <div class="token-item">
+                        <div class="token-bar" style="height: 30%;"></div>
+                        <div class="token-label">Community</div>
+                        <div class="token-percentage">30%</div>
+                    </div>
+                    <div class="token-item">
+                        <div class="token-bar" style="height: 20%;"></div>
+                        <div class="token-label">Marketing</div>
+                        <div class="token-percentage">20%</div>
+                    </div>
+                    <div class="token-item">
+                        <div class="token-bar" style="height: 10%;"></div>
+                        <div class="token-label">Team</div>
+                        <div class="token-percentage">10%</div>
+                    </div>
+                </div>
+                <div class="tokenomics-details">
+                    <div class="token-detail">
+                        <h3>Liquidity (40%)</h3>
+                        <p>Ensures stable trading conditions and reduces price volatility for all holders.</p>
+                    </div>
+                    <div class="token-detail">
+                        <h3>Community (30%)</h3>
+                        <p>Rewards for active community members, airdrops, and community-driven initiatives.</p>
+                    </div>
+                    <div class="token-detail">
+                        <h3>Marketing (20%)</h3>
+                        <p>Strategic campaigns to increase awareness and adoption of Whitehall globally.</p>
+                    </div>
+                    <div class="token-detail">
+                        <h3>Team (10%)</h3>
+                        <p>Vested tokens for the core development team to ensure long-term commitment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap">
+        <div class="container">
+            <div class="section-title">
+                <h2>Roadmap</h2>
+            </div>
+            <div class="roadmap-container">
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-phase">Phase 1: Launch</div>
+                        <ul>
+                            <li>Token creation and smart contract deployment</li>
+                            <li>Website and social media launch</li>
+                            <li>Initial community building</li>
+                            <li>First exchange listing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-phase">Phase 2: Growth</div>
+                        <ul>
+                            <li>Major exchange listings</li>
+                            <li>Community governance implementation</li>
+                            <li>Partnership announcements</li>
+                            <li>Marketing expansion</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-phase">Phase 3: Innovation</div>
+                        <ul>
+                            <li>Whitehall NFT collection launch</li>
+                            <li>Staking and farming features</li>
+                            <li>Mobile application development</li>
+                            <li>Cross-chain integration</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-phase">Phase 4: Ecosystem Expansion</div>
+                        <ul>
+                            <li>Whitehall DeFi platform</li>
+                            <li>Merchandise and real-world integration</li>
+                            <li>Global community events</li>
+                            <li>Whitehall Foundation establishment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Community</h2>
+            </div>
+            <div class="community-content">
+                <p>Become part of the Whitehall revolution. Connect with like-minded individuals, share ideas, and help shape the future of this innovative project.</p>
+                <div class="social-icons">
+                    <a https://t.me/+fI5qu9GSFFk5NWJl="#" class="social-icon">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a https://x.com/SupriSupri24035?t=Ox48_sWHp7FCTU2w_JWFKA&s=09="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a https://discord.gg/3N5R4ZEcg="#" class="social-icon">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">WHITEHALL</div>
+                <div class="footer-text">© 2025 Whitehall | "Built by the Community, for the Future"</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('active');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Add hover effects to elements
+        document.querySelectorAll('.btn, .social-icon, .token-detail, .roadmap-content').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+    </script>
+</body>
+</html>
